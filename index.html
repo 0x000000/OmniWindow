@@ -8,7 +8,7 @@
   <link rel="stylesheet" type="text/css" href="normalize.26.04.2012.css" media="all">
   <link rel="stylesheet" type="text/css" href="style.css" media="all">
 
-  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+  <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
   <script type="text/javascript" src="jquery.omniwindow.js"></script>
   <script type="text/javascript" src="script.js"></script>
 </head>
@@ -23,8 +23,8 @@
     </p>
 
     <div class="links">
-      <a class="button download" href="#xxx">Download version 0.6.0 (MIT License)</a>
-      <a class="button fork_me" href="#">Fork me on Github!</a>
+      <a class="button download" href="https://raw.github.com/0x000000/OmniWindow/master/jquery.omniwindow.js">Download version 0.7.0 (MIT License)</a>
+      <a class="button fork_me"  href="https://github.com/0x000000/OmniWindow">Fork me on Github!</a>
     </div>
 
     <h2>Main Ideas</h2>
@@ -148,7 +148,7 @@
           $modal.trigger('show');<br/>
           <i>// ...</i><br/><br/>
           $('.close-button').click(function(e){<br/>
-          &nbsp;&nbsp;e.preventDefault();
+          &nbsp;&nbsp;e.preventDefault();<br/>
           &nbsp;&nbsp;$modal.trigger('hide');<br/>
           });
         </code>
