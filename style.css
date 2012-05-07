@@ -1,13 +1,13 @@
 body {
     background: #E9E9E9;
-    font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    font-family: "Open Sans", sans-serif;
     color: #424242;
 }
 
 #flow {
     position: relative;
     margin: 0 auto 100px;
-    width: 900px;
+    width: 960px;
     padding: 0 30px;
     overflow: hidden;
 }
