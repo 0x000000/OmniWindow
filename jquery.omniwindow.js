@@ -4,6 +4,7 @@
 // @license:  MIT
 
 ;(function($) {
+  "use strict";
   $.fn.extend({
     omniWindow: function(options) {
 
@@ -63,7 +64,7 @@
             },
             afterShow: function(subjects) {
               $(document).on(options.eventsNames.internal.keyboardKeyUp, function(e) {
-                if (e.keyCode == 27) {                                              // if the key pressed is the ESC key
+                if (e.keyCode === 27) {                                              // if the key pressed is the ESC key
                   subjects.modal.trigger(options.eventsNames.hide);
                 }
               });
