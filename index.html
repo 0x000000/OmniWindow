@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset='utf-8'>
+  <title>OmniWindow – extremely customizable modal plugin for jQuery!</title>
+  <meta name="description" content="OmniWindow – extremely customizable modal plugin for jQuery!"/>
+
+  <link rel="stylesheet" type="text/css" href="normalize.26.04.2012.css" media="all">
+  <link rel="stylesheet" type="text/css" href="style.css" media="all">
+  <link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' media="all">
+
+  <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <script type="text/javascript" src="https://raw.github.com/0x000000/OmniWindow/master/jquery.omniwindow.js"></script>
+
+  <script type="text/javascript" src="script.js"></script>
+</head>
+<body>
+
+  <div id="flow">
+    <h1>Omni<span class="reverted">Window</span></h1>
+    <p class='advert'>
+      Extremely customizable <span class="reverted">modal window plugin</span> for jQuery with <span class="reverted">139 lines</span>
+      of code,
+      written specially <span class="reverted">for programmers</span>.
+    </p>
+
+    <div class="links">
+      <a class="button download" href="https://raw.github.com/0x000000/OmniWindow/master/jquery.omniwindow.js">Download version 0.7.0 (MIT License)</a>
+      <a class="button fork_me"  href="https://github.com/0x000000/OmniWindow">Fork me on Github!</a>
+    </div>
+
+    <h2>Main Ideas</h2>
+    <ul>
+      <li>Modal window is not an image gallery.</li>
+      <li>HTML and CSS should be outside of the plugin code.</li>
+      <li>You can decide yourself which animations will annoy user's eyes.</li>
+      <li>Magic numbers and tons of options? Not here.</li>
+      <li>Callbacks are good for javascript.</li>
+      <li>Default behaviour should be unobtrusive.</li>
+      <li>150 lines of code are enough for modal window plugin.</li>
+    </ul>
+
+    <h2 id="ex1">Basic Usage <a class="button execute ex1" href="#ex1">Run example #1</a></h2>
+    <p>Make minimum actions to use OmniWindow:</p>
+
+    <ul class="example">
+      <li class="html">
+        <code>
+          <i>&lt;!-- Include both jQuery and plugin libs: --&gt;</i> <br/>
+          &lt;script type="text/javascript" src="...<b>jquery.js</b>"&gt;&lt;/script&gt; <br/>
+          &lt;script type="text/javascript" src="...<b>jquery.omniwindow.js</b>"&gt;&lt;/script&gt; <br/>
+          <br/>
+          <i>&lt;!-- Container for an overlay: --&gt;</i> <br/>
+          &lt;div class="<b>ow-overlay</b> <b>ow-closed</b>"&gt;&lt;/div&gt; <br/>
+          <br/>
+          <i>&lt;!-- Container for a modal window: --&gt;</i> <br/>
+          &lt;div class="<b>modal</b> <b>ow-closed</b>"&gt;Hello, human!&lt;/div&gt;
+        </code>
+      </li>
+      <li class="css"><code>
+        <i>/* Default class for an overlay */</i><br/>
+        <b>.ow-overlay</b> {<br/>
+        &nbsp;&nbsp;position: fixed;<br/>
+        &nbsp;&nbsp;z-index: 10;<br/>
+        &nbsp;&nbsp;top: 0;<br/>
+        &nbsp;&nbsp;left: 0;<br/>
+        &nbsp;&nbsp;height: 100%;<br/>
+        &nbsp;&nbsp;width: 100%;<br/>
+        &nbsp;&nbsp;background: #424242;<br/>
+        &nbsp;&nbsp;opacity: 0.8;<br/>
+        }<br/><br/>
+        <i>/* Default class for hidden windows */</i><br/>
+        <b>.ow-closed</b> {<br/>
+        &nbsp;&nbsp;display: none;<br/>
+        }<br/><br/>
+        <i>/* Default style for modal window */</i><br/>
+        <b>.modal</b> {<br/>
+        &nbsp;&nbsp;height: 300px;<br/>
+        &nbsp;&nbsp;left: 50%;<br/>
+        &nbsp;&nbsp;top: 50px;<br/>
+        &nbsp;&nbsp;margin-left: -150px;<br/>
+        &nbsp;&nbsp;position: fixed;<br/>
+        &nbsp;&nbsp;width: 300px;<br/>
+        &nbsp;&nbsp;z-index: 20;<br/>
+        }<br/>
+      </code>
+      </li>
+      <li class="js">
+        <code>
+          $(function(){<br/>
+          &nbsp;&nbsp;$('<b>div.modal</b>').omniWindow() <i>// create modal</i><br/>
+          &nbsp;&nbsp;&nbsp;&nbsp;.trigger('show'); <i>// and show it</i><br/>
+          });
+        </code>
+      </li>
+    </ul>
+
+
+
+
+
+
+
+
+    <h2 id="ex2">Classes and Selectors <a class="button execute ex2" href="#ex2">Run example #2</a></h2>
+    <p>If you want to use your own names for modal and overlay classes, you can set them as options.
+      OmniWindow provides the following options to do that:
+    </p>
+
+    <dl class="options">
+      <dt>overlay.selector</dt>   <dd> jQuery selector used to find overlay. <span class='default'>".ow-overlay"</span></dd>
+      <dt>overlay.hideClass</dt>  <dd> Class name used to hide overlay       <span class='default'>"ow-closed"</span></dd>
+      <dt>modal.hideClass</dt>    <dd> Class name used to hide modal         <span class='default'>"ow-closed"</span></dd>
+    </dl>
+
+    <ul class="example">
+    <li class="js">
+      <code>
+        $('div.another-modal').omniWindow({<br/>
+        &nbsp;&nbsp;overlay: {<br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;<b>selector:  '.custom-overlay'</b>, <i>// don't forget the period symbol!</i> <br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;<b>hideClass: 'custom-overlay-closed'</b><br/>
+        &nbsp;&nbsp;},<br/>
+        &nbsp;&nbsp;modal: {<br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;<b>hideClass: 'custom-modal-closed'</b><br/>
+        &nbsp;&nbsp;}<br/>
+        });
+      </code>
+    </li>
+    </ul>
+
+
+
+
+
+
+
+    <h2 id="ex3">Events: Show and Hide <a class="button execute ex3" href="#ex3">Run example #3</a></h2>
+    <p>OmniWindow uses two events to show and hide windows. You can trigger this events any time you need.</p>
+    <p>For example, you can trigger hide event to create <span class="reverted">your own close button</span>.</p>
+
+    <ul class="example">
+      <li class="html">
+        <code>
+          &lt;div class="modal ow-closed"&gt;<br/>
+          &nbsp;&nbsp;&lt;h1&gt;Close me!&lt;/h1&gt;<br/>
+          &nbsp;&nbsp;&lt;a class='close-button' href='#'&gt;X&lt;/a&gt;<br/>
+          &lt;/div&gt;
+        </code>
+      </li>
+      <li class="js">
+        <code>
+          var $modal = $('div.modal').omniWindow();<br/>
+          <i>// ...</i><br/><br/>
+          $modal.trigger('show');<br/>
+          <i>// ...</i><br/><br/>
+          $('.close-button').click(function(e){<br/>
+          &nbsp;&nbsp;e.preventDefault();<br/>
+          &nbsp;&nbsp;$modal.trigger('hide');<br/>
+          });
+        </code>
+      </li>
+    </ul>
+
+    <dl class="options">
+      <dt>eventsNames.show</dt><dd>OmniWindow uses this event name as trigger value to show window<span class='default'>show.ow</span></dd>
+      <dt>eventsNames.hide</dt><dd>OmniWindow uses this event name as trigger value to hide window<span class='default'>hide.ow</span></dd>
+    </dl>
+
+    <p class="warn">You can redefine event names as you wish, but remember about <a href="http://docs.jquery.com/Namespaced_Events">jQuery namespaces</a>!
+      It's convenient way to unbind only necessary events.
+    </p>
+
+
+
+
+
+
+    <h2 id="ex4">Events: Internal part</h2>
+
+    <p>Plugin also has two additional event listeners:</p>
+    <dl class="options">
+      <dt>eventsNames.<i>internal</i>.overlayClick</dt>
+      <dd>OmniWindow uses this event name as trigger value to emulate mouse click on overlay<span class='default'>click.ow</span></dd>
+      <dt>eventsNames.<i>internal</i>.keyboardKeyUp</dt>
+      <dd>OmniWindow uses this event name to subsribe to ESC keyup<span class='default'>keyup.ow</span></dd>
+    </dl>
+
+
+    <p class="warn">
+      Don't touch options with <b><i>internal</i></b> keys if you don't know what you are doing.
+    </p>
+
+    <p class="warn">
+      When omniWindow instance is hidden, it listens only for 'show' event.
+    </p>
+
+    <p class="warn">
+      Don't use events to break OmniWindow behaviour, if you need to stop some action just use <a href="#ex5" class="internal">callbacks</a>!
+    </p>
+
+
+
+
+
+
+    <h2 id="ex5">Callbacks: Introduction</h2>
+
+    <p class="description">There are two groups of callbacks: animation callbacks and lifetime callbacks.
+      Each callback has two parts: user part and internal part.</p>
+
+    <p>Any user callback can be described in the same way:</p>
+    <ul class="example">
+      <li class="js">
+        <code>
+          function(<b>subjects</b>, <b>internalCallback</b>) {<br/>
+          &nbsp;&nbsp;<i>// some actions</i><br/>
+          &nbsp;&nbsp;return internalCallback(subjects); <br/>
+          }
+        </code>
+      </li>
+    </ul>
+
+    <dl class="options">
+      <dt>subjects</dt>
+      <dd>Object contains two <span class="reverted">jQuery instances</span>:
+
+        <dl class="options">
+          <dt>subjects.modal</dt>
+          <dd>Current modal container.</dd>
+          <dt>subjects.overlay</dt>
+          <dd>Current overlay container.</dd>
+        </dl>
+      </dd>
+
+      <dt>internalCallback</dt>
+      <dd>System callback which does something useful. See more information about that specific callback below.</dd>
+    </dl>
+
+    <p>You can do something with modal or overlay containers in your callbacks:</p>
+    <ul class="example">
+      <li class="js">
+        <code>
+          function(subjects, internalCallback) {<br/>
+          &nbsp;&nbsp;<b>subjects.overlay</b>.addClass('foo-bar'); <i>// feel free to use any jQuery methods</i><br/>
+          &nbsp;&nbsp;return internalCallback(subjects); <br/>
+          }
+        </code>
+      </li>
+    </ul>
+
+    <p class="warn">
+      Always call <b>internalCallback(subjects);</b> at the end of your callback to prevent a lot of errors!
+    </p>
+
+
+
+
+
+
+
+
+    <h2 id="ex6">Callbacks: Animations <a class="button execute ex6" href="#ex6">Run example #4</a></h2>
+    <p>You can define any kind of animations you want. Just use one (or all) of this callbacks:</p>
+
+    <dl class="options">
+      <dt>overlay.animations.show</dt>
+      <dd>Use this callback to show overlay<span class="default">Does nothing</span></dd>
+      <dt>overlay.animations.hide</dt>
+      <dd>Use this callback to hide overlay<span class="default">Does nothing</span></dd>
+      <dt>modal.animations.show</dt>
+      <dd>Use this callback to show modal<span class="default">Does nothing</span></dd>
+      <dt>modal.animations.hide</dt>
+      <dd>Use this callback to hide modal<span class="default">Does nothing</span></dd>
+    </dl>
+
+    <p>For example, if you want use fade effects for overlay, you need to redefine <b>overlay.animations.show</b> and <b>overlay.animations.hide</b> callbacks:</p>
+
+    <ul class="example">
+      <li class="js">
+        <code>
+          $('div.modal').omniWindow({<br/>
+          &nbsp;&nbsp;<b>overlay</b>: { <br/>
+          &nbsp;&nbsp;&nbsp;&nbsp;<b>animations</b>: { <br/>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>hide</b>: function(subjects, internalCallback) { <br/>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;subjects.overlay.fadeOut(250, function(){ <br/>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;internalCallback(subjects); <i>// call internal callback </i> <br/>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}) <br/>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}, <br/><br/>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>show</b>: function(subjects, internalCallback) { <br/>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;subjects.overlay.fadeIn(250, function(){ <br/>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;internalCallback(subjects); <i>// call internal callback </i> <br/>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}); <br/>
+          <i>// etc</i>
+
+        </code>
+      </li>
+    </ul>
+
+    <p class="warn">
+      It's not necessary to <b>return</b> some values from animation callbacks.
+    </p>
+
+
+
+    <h2 id="ex6_5">Callbacks: Internal Animations</h2>
+    <p>Here is a list of internal animations, which are called after user-defined animations:</p>
+
+    <dl class="options">
+      <dt>overlay.animations.<i>internal</i>.show</dt>
+      <dd>Removes <b>overlay.hideClass</b> class from overlay container</dd>
+      <dt>overlay.animations.<i>internal</i>.hide</dt>
+      <dd>Adds <b>overlay.hideClass</b> class to overlay container</dd>
+      <dt>modal.animations.<i>internal</i>.show</dt>
+      <dd>Removes <b>modal.hideClass</b> class from modal container</dd>
+      <dt>modal.animations.<i>internal</i>.hide</dt>
+      <dd>Adds <b>modal.hideClass</b> class to modal container</dd>
+    </dl>
+
+    <p class="warn">
+      If you plan to play with <b><i>internal</i></b> animations for some reason, please don't use animations with timers there!
+    </p>
+
+
+
+
+
+
+
+
+
+
+
+    <h2 id="ex7">Animation Priority</h2>
+    <p>What will be first: overlay show animation or modal show? You shouldn't guess: it is under your control with <b>animationsPriority</b> option:</p>
+
+    <dl class="options">
+      <dt>animationsPriority.show</dt>
+      <dd>Array of methods which describes show animations priority (from first to second)<span class="default">['overlay', 'modal']</span></dd>
+      <dt>animationsPriority.hide</dt>
+      <dd>Array of methods which describes hide animations priority (from first to second)<span class="default">['modal', 'overlay']</span></dd>
+    </dl>
+
+    <p>According to default settings animations will appear in following order: show overlay -> show modal -> hide modal -> hide overlay.</p>
+
+
+
+
+
+    <h2 id="ex8">Callbacks: Lifetime Callbacks <a class="button execute ex8" href="#ex8">Run example #5</a></h2>
+    <p>Lifetime callbacks are five useful functions created to simplify your life! Meet them:</p>
+
+    <dl class="options">
+      <dt>callbacks.beforeShow</dt>
+      <dd>Called before modal window or overlay start any show animations. <br/> Useful for additional checks and for loading content via ajax.<br/>If this function <b>returns false</b>, modal will not be shown.<span class="default">Does nothing</span></dd>
+      <dt>callbacks.positioning</dt>
+      <dd>Called before modal window or overlay start any show animations. <br/>You can put here any window position-related logic. <span class="default">Does nothing</span></dd>
+      <dt>callbacks.afterShow</dt>
+      <dd>Called after overlay and modal show animations. <br/> Useful to initialize some variables or prepare any kind of event listeners. <span class="default">Does nothing</span></dd>
+      <dt>callbacks.beforeHide</dt>
+      <dd>Called before modal window or overlay start any hide animations. <br/> Useful for validations checks and for saving content via ajax.<br/>If this function <b>returns false</b>, modal will not be hidden.<span class="default">Does nothing</span></dd>
+      <dt>callbacks.afterHide</dt>
+      <dd>Called after overlay and modal hide animations.<br/> Useful to unbind event listeners and clear all previous defined states. <span class="default">Does nothing</span></dd>
+    </dl>
+
+    <p>There is an example of <b>callbacks.beforeHide</b>, used to validate input: user should fill in the textbox before closing the window.
+      <b>callbacks.afterShow</b> provides logic to clear field and disable error each time window shows.</p>
+
+    <ul class="example">
+      <li class="html">
+        <code>
+        &lt;div class="modal ow-closed"&gt;<br/>
+        &nbsp;&nbsp;&lt;input name="fill_me" type="text" value="" /&gt;<br/>
+        &nbsp;&nbsp;&lt;div class="error"&gt;Please fill this field before closing!&lt;/div&gt;<br/>
+        &lt;/div&gt;
+        </code>
+      </li>
+      <li class="js">
+        <code>
+          $('div.modal').omniWindow({ <br/>
+          &nbsp;&nbsp;<b>callbacks</b>: { <br/>
+          &nbsp;&nbsp;&nbsp;&nbsp;<b>afterShow</b>: function(subjects, internalCallback) { <br/>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;subjects.modal.find('input').val('').focus(); <br/>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;subjects.modal.find('div.error').hide(); <br/>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return internalCallback(subjects); <i>// call internal callback </i><br/>
+          &nbsp;&nbsp;&nbsp;&nbsp;}, <br/><br/>
+          &nbsp;&nbsp;&nbsp;&nbsp;<b>beforeHide</b>: function(subjects, internalCallback) { <br/>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var $input = subjects.modal.find('input'); <br/>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if ($input.val().length == 0) { <br/>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;subjects.modal.find('div.error').show(); <br/>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$input.focus(); <br/>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return false; <i>// doesn't allow to hide!</i> <br/>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} else { <br/>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return internalCallback(subjects); <i>// call internal callback </i><br/>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} <br/>
+          <i>// etc</i>
+        </code>
+      </li>
+    </ul>
+
+
+    <h2 id="ex8_5">Callbacks: Internal Lifetime Callbacks</h2>
+
+    <dl class="options">
+      <dt>callbacks.<i>internal</i>.beforeShow</dt>
+      <dd>Checks that window is loaded and showed only once and saves window state. If the window is already shown and someone tries to load it again, function breaks loading.</dd>
+      <dt>callbacks.<i>internal</i>.positioning</dt>
+      <dd>Aligns window to center by calculating margin-left from outerWidth of window.</dd>
+      <dt>callbacks.<i>internal</i>.afterShow</dt>
+      <dd>Attaches listeners to close window by clicking on the overlay or pressing ESC</dd>
+      <dt>callbacks.<i>internal</i>.beforeHide</dt>
+      <dd>Checks that window is not hidden and saves window state. If the window is already hidden and someone tries to hide it again, function breaks hiding process.</dd>
+      <dt>callbacks.<i>internal</i>.afterHide</dt>
+      <dd>Detaches internal event listeners and clears inline styles after jQuery animations.</dd>
+    </dl>
+
+
+    <h2 id="ex9">Callbacks' summary</h2>
+
+    <h4><span class="reverted">Show</span> event lifecycle:</h4>
+
+    <ol class="callback-chain">
+      <li><b>show</b> event on window is triggered: <code>$(...).trigger('show');</code></li>
+      <li><b>beforeShow</b> trigger is called: if result is true then go next, else stop</li>
+      <li><b>internal.beforeShow</b> trigger is called: if result is true then go next, else stop</li>
+      <li><b>positioning</b> callback is called</li>
+      <li><b>internal.positioning</b> callback is called</li>
+      <li><b>first show animations</b> callback is called(by order according to animations priority)</li>
+      <li><b>first internal.show animations</b> callback is called</li>
+      <li><b>second show animations</b> callback is called</li>
+      <li><b>second internal.show animations</b> callback is called</li>
+      <li><b>afterShow</b> callback is called</li>
+      <li><b>internal.afterShow</b> callback is called</li>
+    </ol>
+
+    <h4><span class="reverted">Hide</span> event lifecycle:</h4>
+
+    <ol class="callback-chain">
+      <li><b>hide</b> event on window is triggered: <code>$(...).trigger('hide');</code></li>
+      <li><b>beforeHide</b> trigger is called: if result is true then go next, else stop</li>
+      <li><b>internal.beforeHide</b> trigger is called: if result is true then go next, else stop</li>
+      <li><b>first hide animations</b> callback is called (by order according to animations priority)</li>
+      <li><b>first internal.hide animations</b> callback is called</li>
+      <li><b>second hide animations</b> callback is called</li>
+      <li><b>second internal.hide animations</b> callback is called</li>
+      <li><b>afterHide</b> callback is called</li>
+      <li><b>internal.afterHide</b> callback is called</li>
+    </ol>
+
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- examples -->
+  <div class="ow-overlay ow-closed"></div>
+  <div class="ex1-modal ow-closed"><h2>Hello, human!</h2> Click on the overlay or press ESC<br/> to close me.</div>
+  <div class="custom-overlay custom-overlay-closed"></div>
+  <div class="ex2-modal custom-modal-closed"><h2>Hello, human!</h2> Click on the overlay or press ESC<br/> to close me.</div>
+
+  <div class="ex3-modal ow-closed"><a class='close-button' href="#">X</a>
+    <h2>Close me!</h2>
+  </div>
+
+  <div class="ex6-modal ow-closed"><h2>^_^</h2></div>
+  <div class="ex8-modal ow-closed">
+    <input name="fill_me" type="text" value="" />
+    <div class="error">Please, fill in this field before closing!</div>
+  </div>
+
+</body>
+</html>
