@@ -6,6 +6,7 @@
   left: 0;
   height: 100%;
   width: 100%;
+
   background: #424242;
   opacity: 0.8;
 }
@@ -17,10 +18,12 @@
 
 /* Default class for modal window */
 .modal {
+  position: fixed;
+  z-index: 20;
   left: 50%;
   top: 50px;
-  position: fixed;
   width: 300px;
   height: 300px;
-  z-index: 20;
+
+  background-color: #fff;
 }
