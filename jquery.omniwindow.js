@@ -4,13 +4,11 @@
 // @license:  MIT
 
 ;(function (root, factory) {
-  if (typeof define === 'function' && define.amd) {
-    // AMD. Register as an anonymous module.
+  if (typeof define === 'function' && define.amd) { // AMD. Register as an anonymous module.
     define(['jquery'], function(jQuery) {
       return (root.jQuery = factory(jQuery));
     });
-  } else {
-    // Browser globals
+  } else { // Browser globals
     factory(root.jQuery);
   }
 }(this, function($) {
@@ -135,7 +133,6 @@
 
         animate('hide', subjects, 'afterHide');
       };
-
 
       var $overlay = $(options.overlay.selector);
 

@@ -1,7 +1,7 @@
 OmniWindow
 =============
 
-Extremely customizable modal window plugin for jQuery with 139 lines of code, written specially for programmers.
+Extremely customizable modal window plugin for jQuery with 150 lines of code, written specially for programmers.
 
 
 Main Ideas
