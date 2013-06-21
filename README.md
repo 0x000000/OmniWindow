@@ -27,3 +27,5 @@ Contributors
 
 * [0x000000](https://github.com/0x000000) – idea and implementation.
 * [Kaciaryna](https://github.com/Kaciaryna) – help with documentation.
+* [Damien Alexandre](https://github.com/damienalexandre) - jsHint compliance and strict mode
+* [xzyfer](https://github.com/xzyfer) - add AMD support
