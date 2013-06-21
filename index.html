@@ -29,7 +29,27 @@
       <a class="button fork_me"  href="https://github.com/0x000000/OmniWindow">Fork me on Github!</a>
     </div>
 
-    <h2>Main Ideas</h2>
+    <nav>
+      <h2>Table of Contents</h2>
+      <ul>
+        <li><a href="#main-ideas" >Main Ideas</a></li>
+        <li><a href="#ex1">Basic Usage</a></li>
+        <li><a href="#ex2">Classes and Selectors</a></li>
+        <li><a href="#ex3">Events</a></li>
+        <li class="second-row"><a href="#ex3">Show and Hide</a></li>
+        <li class="second-row"><a href="#ex4">Internal part</a></li>
+        <li><a href="#ex5">Callbacks</a></li>
+        <li class="second-row"><a href="#ex5">Introduction</a></li>
+        <li class="second-row"><a href="#ex6">Animations</a></li>
+        <li class="second-row"><a href="#ex6_5">Internal Animations</a></li>
+        <li class="third-row"><a href="#ex7">Animation Priority</a></li>
+        <li class="second-row"><a href="#ex8">Lifetime Callbacks</a></li>
+        <li class="second-row"><a href="#ex8_5">Internal Lifetime Callbacks</a></li>
+        <li class="second-row"><a href="#ex9">Callbacks' summary</a></li>
+      </ul>
+    </nav>
+
+    <h2 id='main-ideas' class="section-title"><a href="#main-ideas">&#xa7;</a>Main Ideas</h2>
     <ul>
       <li>Modal window is not an image gallery.</li>
       <li>HTML and CSS should be outside of the plugin code.</li>
@@ -40,7 +60,7 @@
       <li>150 lines of code are enough for modal window plugin.</li>
     </ul>
 
-    <h2 id="ex1">Basic Usage <a class="button execute ex1" href="#ex1">Run example #1</a></h2>
+    <h2 id="ex1" class="section-title"><a href='#ex1'>&#xa7;</a>Basic Usage <a class="button execute ex1" href="#ex1">Run example #1</a></h2>
     <p>Make minimum actions to use OmniWindow:</p>
 
     <ul class="example">
@@ -104,7 +124,7 @@
 
 
 
-    <h2 id="ex2">Classes and Selectors <a class="button execute ex2" href="#ex2">Run example #2</a></h2>
+    <h2 id="ex2" class="section-title"><a href="#ex2">&#xa7;</a>Classes and Selectors <a class="button execute ex2" href="#ex2">Run example #2</a></h2>
     <p>If you want to use your own names for modal and overlay classes, you can set them as options.
       OmniWindow provides the following options to do that:
     </p>
@@ -137,7 +157,7 @@
 
 
 
-    <h2 id="ex3">Events: Show and Hide <a class="button execute ex3" href="#ex3">Run example #3</a></h2>
+    <h2 id="ex3" class="section-title"><a href="#ex3">&#xa7;</a>Events: Show and Hide <a class="button execute ex3" href="#ex3">Run example #3</a></h2>
     <p>OmniWindow uses two events to show and hide windows. You can trigger this events any time you need.</p>
     <p>For example, you can trigger hide event to create <span class="reverted">your own close button</span>.</p>
 
@@ -178,7 +198,7 @@
 
 
 
-    <h2 id="ex4">Events: Internal part</h2>
+    <h2 id="ex4" class="section-title"><a href="#ex4">&#xa7;</a>Events: Internal part</h2>
 
     <p>Plugin also has two additional event listeners:</p>
     <dl class="options">
@@ -206,7 +226,7 @@
 
 
 
-    <h2 id="ex5">Callbacks: Introduction</h2>
+    <h2 id="ex5" class="section-title"><a href="#ex5">&#xa7;</a>Callbacks: Introduction</h2>
 
     <p class="description">There are two groups of callbacks: animation callbacks and lifetime callbacks.
       Each callback has two parts: user part and internal part.</p>
@@ -262,7 +282,7 @@
 
 
 
-    <h2 id="ex6">Callbacks: Animations <a class="button execute ex6" href="#ex6">Run example #4</a></h2>
+    <h2 id="ex6" class="section-title"><a href="#ex6">&#xa7;</a>Callbacks: Animations <a class="button execute ex6" href="#ex6">Run example #4</a></h2>
     <p>You can define any kind of animations you want. Just use one (or all) of this callbacks:</p>
 
     <dl class="options">
@@ -305,7 +325,7 @@
 
 
 
-    <h2 id="ex6_5">Callbacks: Internal Animations</h2>
+    <h2 id="ex6_5" class="section-title"><a href="#ex6_5">&#xa7;</a>Callbacks: Internal Animations</h2>
     <p>Here is a list of internal animations, which are called after user-defined animations:</p>
 
     <dl class="options">
@@ -333,7 +353,7 @@
 
 
 
-    <h2 id="ex7">Animation Priority</h2>
+    <h2 id="ex7" class="section-title"><a href="#ex7">&#xa7;</a>Animation Priority</h2>
     <p>What will be first: overlay show animation or modal show? You shouldn't guess: it is under your control with <b>animationsPriority</b> option:</p>
 
     <dl class="options">
@@ -349,7 +369,7 @@
 
 
 
-    <h2 id="ex8">Callbacks: Lifetime Callbacks <a class="button execute ex8" href="#ex8">Run example #5</a></h2>
+    <h2 id="ex8" class="section-title"><a href="#ex8">&#xa7;</a>Callbacks: Lifetime Callbacks <a class="button execute ex8" href="#ex8">Run example #5</a></h2>
     <p>Lifetime callbacks are five useful functions created to simplify your life! Meet them:</p>
 
     <dl class="options">
@@ -401,7 +421,7 @@
     </ul>
 
 
-    <h2 id="ex8_5">Callbacks: Internal Lifetime Callbacks</h2>
+    <h2 id="ex8_5" class="section-title"><a href="#ex8_5">&#xa7;</a>Callbacks: Internal Lifetime Callbacks</h2>
 
     <dl class="options">
       <dt>callbacks.<i>internal</i>.beforeShow</dt>
@@ -417,7 +437,7 @@
     </dl>
 
 
-    <h2 id="ex9">Callbacks' summary</h2>
+    <h2 id="ex9" class="section-title"><a href="#ex9">&#xa7;</a>Callbacks' summary</h2>
 
     <h4><span class="reverted">Show</span> event lifecycle:</h4>
 
