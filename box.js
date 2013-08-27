@@ -45,7 +45,7 @@ $(function() {
           }, 250, function() {
             subjects.modal.append(imageObj);
             $(imageObj).fadeIn(250);
-            $('.modal-caption').text(title);
+            caption.text(title);
             imageModal.removeClass('loading');
           });
 
@@ -56,7 +56,7 @@ $(function() {
       },
       afterHide: function(subjects, internalCallback) {
         imageModal.find('.main-image').remove();
-        $('.modal-caption').empty();
+        caption.empty();
         imageModal.addClass('loading');
 
         return internalCallback(subjects);
