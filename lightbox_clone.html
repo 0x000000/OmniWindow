@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset='utf-8'>
+  <title></title>
+  <meta name="description" content="Lightbox clone – example of customizing OmniWindow modal plugin!"/>
+
+  <link rel="stylesheet" type="text/css" href="normalize.26.04.2012.css" media="all">
+  <link rel="stylesheet" type="text/css" href="lightbox_clone.css" media="all">
+  <link rel="stylesheet" type="text/css" href="lightbox_clone_doc.css" media="all">
+
+  <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <script type="text/javascript" src="jquery.omniwindow.js"></script>
+
+  <script type="text/javascript" src="lightbox_clone.js"></script>
+</head>
+<body>
+
+<h2 class="title">Lightbox CLONE</h2>
+<p class="sub-title">is small plugin, used to overlay images on top of the current page.</p>
+<p class="sub-title">This plugin is an example of how
+  <a href="http://0x000000.github.io/OmniWindow/">OmniWindow</a>
+  can be easily customized to fulfil the functions of
+  <a href="http://lokeshdhakar.com/projects/lightbox2/">Lightbox library</a>.
+</p>
+<h2>Examples</h2>
+
+<ul class="image-gallery">
+  <li class="image-wrap"><a href="img/kite.jpg" title='Kite'><img src='img/kite-mini.jpg'></a></li>
+  <li class="image-wrap"><a href="img/tree.jpg" title='Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut eu libero vel lorem cursus tempus sit amet et dui. Integer turpis libero, tristique quis rhoncus eu, tempor et est. Cras vestibulum at justo vel mattis. Etiam hendrerit nunc ipsum, at porttitor eros eleifend vitae.'><img src='img/tree-mini.jpg'></a></li>
+  <li class="image-wrap"><a href="img/field.jpg"><img src='img/field-mini.jpg'></a></li>
+</ul>
+
+<h2>How to use</h2>
+
+<div class="usage">
+  <h3>1. Include jQuery, OmniWindow and plugin libs to your html</h3>
+  <pre>
+  <code>
+  &lt;script type="text/javascript" src="...<b>jquery.js</b>"&gt;&lt;/script&gt;
+  &lt;script type="text/javascript" src="...<b>jquery.omniwindow.js</b>"&gt;&lt;/script&gt;
+  &lt;script type="text/javascript" src="...<b>lightbox_clone.js</b>"&gt;&lt;/script&gt;</code>
+  </pre>
+  <h3>2. Add container for the overlay and modal window</h3>
+  <pre>
+  <code>
+  &lt;div class="ow-overlay ow-closed">&lt;/div&gt;
+
+  &lt;div class="image-modal ow-closed"&gt;
+    &lt;img class="loader" src='loading.gif' width="32" height="32"&gt;
+    &lt;p class="modal-caption">&lt;/p&gt;
+    &lt;span class="close-modal"&gt;+&lt;/span&gt;
+  &lt;/div&gt;</code>
+  </pre>
+  <p>You'll need to put close button, caption and loader image within the modal window container.</p>
+  <p>Don't forget to download and add <code>loading.gif</code> image to your project.</p>
+  <h3>3. Add default css</h3>
+  <pre>
+  <code>
+  &lt;link rel="stylesheet" type="text/css" href="...lightbox_clone.css" media="all"&gt;</code>
+  </pre>
+
+  <h3>4. Add image gallery structure</h3>
+  <p>The default structure is as follows:</p>
+
+  <pre>
+  <code>
+  &lt;ul class="image-gallery"&gt;
+    &lt;li <i>class="image-wrap"</i>&gt;
+      &lt;a href="img/kite.jpg" title='Kite'&gt;
+        &lt;img src='img/kite-mini.jpg'&gt;
+      &lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li <i>class="image-wrap"</i>&gt;
+      &lt;a href="img/tree.jpg"&gt;
+        &lt;img src='img/tree-mini.jpg'&gt;
+      &lt;/a&gt;
+    &lt;/li&gt;
+  &lt;/ul&gt;</code>
+  </pre>
+  <p><span class="important">Important:</span> Put src of big image (that will be shown in the modal window) into href attribute of a link in preview:</p>
+  <pre>
+  <code>
+  &lt;a href="big image scr here"&gt;</code>
+  </pre>
+  <p class="optional">Optional: Set the title attribute if you want to show a caption:</p>
+  <pre>
+  <code>
+  &lt;a href="big image scr here" title='caption here'&gt;</code>
+  </pre>
+  <h3>5. Include plugin call into your javascript file. Be sure that this call goes within <code>DOMContentLoaded</code> function:</h3>
+  <pre>
+  <code>
+  $(function() {
+    $('<i>.image-wrap</i> a').imageBox();
+  });</code>
+  </pre>
+</div>
+
+<div class="ow-overlay ow-closed"></div>
+
+<div class="image-modal ow-closed">
+  <img class="loader" src='loading.gif' width="32" height="32">
+  <p class="modal-caption"></p>
+  <span class="close-modal">+</span>
+</div>
+
+<script>
+  $(function() {
+    $('.image-wrap a').imageBox();
+  });
+</script>
+
+</body>
+</html>

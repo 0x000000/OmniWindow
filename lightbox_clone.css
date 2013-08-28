@@ -1,7 +1,8 @@
 body {
   background-color: #444;
+  color: #ccc;
   font-family: Georgia, serif;
-  font-size: 13px;
+  font-size: 16px;
 }
 
 .ow-overlay {
@@ -17,6 +18,10 @@ body {
 
 .ow-closed {
   display: none;
+}
+
+.image-gallery {
+  text-align: center;
 }
 
 .image-gallery li {
@@ -43,6 +48,7 @@ body {
 .close-modal {
   bottom: -50px;
   color: #7d7d7d;
+  cursor: pointer;
   display: block;
   font-size: 50px;
   position: absolute;
@@ -71,11 +77,6 @@ body {
   border-radius: 3px;
 }
 
-
-.main-image {
-  display: none;
-}
-
 .loader {
   display: none;
   left: 50%;
@@ -97,6 +98,7 @@ body {
   color: #bbb;
   margin: 10px 30px 0 0;
   font-family: Helvetica, sans-serif;
+  font-size: 13px;
   position: absolute;
   top: 100%;
 }
