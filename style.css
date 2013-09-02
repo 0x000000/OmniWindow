@@ -250,4 +250,34 @@ ol.callback-chain {
     color: #a52a2a;
 }
 
+.section-title:hover a:first-child,
+.section-title a:first-child:hover {
+  color: #000;
+}
 
+.section-title a:first-child {
+  border-bottom: none;
+  color: #979797;
+  margin-right: 10px;
+}
+
+nav {
+  margin-right: 50px;
+}
+
+nav ul {
+  padding-left: 0;
+}
+
+
+nav a {
+  border-bottom-style: dashed;
+}
+
+.second-row {
+  padding-left: 20px;
+}
+
+.third-row {
+  padding-left: 40px;
+}
