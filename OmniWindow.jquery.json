@@ -21,7 +21,7 @@
             "url": "https://raw.github.com/0x000000/OmniWindow/master/MIT-LICENSE.txt"
         }
     ],
-    "bugs": "https://github.com/0x000000/OmniWindow/issues"
+    "bugs": "https://github.com/0x000000/OmniWindow/issues",
     "homepage": "http://0x000000.github.com/OmniWindow/",
     "docs": "http://0x000000.github.com/OmniWindow/",
     "demo": "http://0x000000.github.com/OmniWindow/#ex1",
