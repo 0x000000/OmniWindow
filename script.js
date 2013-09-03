@@ -55,8 +55,6 @@ $(function(){
   var $modal8 = $('div.ex8-modal').omniWindow({
     callbacks: {
       afterShow: function(subjects, internalCallback) {
-        console.log("sss" + new Date(), subjects);
-
         subjects.modal.find('input').val('').focus();
         subjects.modal.find('div.error').hide();
         return internalCallback(subjects);
