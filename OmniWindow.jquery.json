@@ -1,7 +1,7 @@
 {
     "name": "OmniWindow",
     "title": "OmniWindow",
-    "description": "Extremely customizable modal window plugin for jQuery with 139 lines of code, written specially for programmers.",
+    "description": "Extremely customizable modal window plugin for jQuery with 150 lines of code, written specially for programmers.",
     "keywords": [
         "modal",
         "popup",
@@ -9,7 +9,7 @@
         "dialog",
         "window"
     ],
-    "version": "0.7.0",
+    "version": "0.7.1",
     "author": {
         "name": "Alexander Rudenka",
         "email": "mur.mailbox@gmail.com",
