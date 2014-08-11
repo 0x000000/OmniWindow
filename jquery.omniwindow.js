@@ -1,5 +1,5 @@
 // jQuery OmniWindow plugin
-// @version:  0.7.1
+// @version:  0.7.2
 // @author:   Rudenka Alexander (mur.mailbox@gmail.com)
 // @license:  MIT
 
@@ -13,7 +13,6 @@
   'use strict';
   $.fn.extend({
     omniWindow: function(options) {
-
       options = $.extend(true, {
         animationsPriority: {
           show: ['overlay', 'modal'],
@@ -72,7 +71,6 @@
               $(document).on(options.eventsNames.internal.keyboardKeyUp, function(e) {
                 if (e.keyCode === 27) {                                              // if the key pressed is the ESC key
                   subjects.modal.trigger(options.eventsNames.hide);
-
                   subjects.overlay.css('display', '');  // clear inline styles after jQ animations
                   subjects.modal.css('display', '');
                 }
@@ -80,7 +78,6 @@
 
               subjects.overlay.on(options.eventsNames.internal.overlayClick, function(){
                 subjects.modal.trigger(options.eventsNames.hide);
-
                 subjects.overlay.css('display', '');  // clear inline styles after jQ animations
                 subjects.modal.css('display', '');
               });
@@ -99,7 +96,6 @@
             afterHide: function(subjects) {
               subjects.overlay.off(options.eventsNames.internal.overlayClick);
               $(document).off(options.eventsNames.internal.keyboardKeyUp);
-
               subjects.overlay.css('display', '');  // clear inline styles after jQ animations
               subjects.modal.css('display', '');
             }
