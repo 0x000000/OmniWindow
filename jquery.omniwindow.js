@@ -1,5 +1,5 @@
 // jQuery OmniWindow plugin
-// @version:  0.7.1
+// @version:  0.7.2
 // @author:   Rudenka Alexander (mur.mailbox@gmail.com)
 // @license:  MIT
 
@@ -13,7 +13,6 @@
   'use strict';
   $.fn.extend({
     omniWindow: function(options) {
-
       options = $.extend(true, {
         animationsPriority: {
           show: ['overlay', 'modal'],
@@ -72,11 +71,15 @@
               $(document).on(options.eventsNames.internal.keyboardKeyUp, function(e) {
                 if (e.keyCode === 27) {                                              // if the key pressed is the ESC key
                   subjects.modal.trigger(options.eventsNames.hide);
+                  subjects.overlay.css('display', '');  // clear inline styles after jQ animations
+                  subjects.modal.css('display', '');
                 }
               });
 
               subjects.overlay.on(options.eventsNames.internal.overlayClick, function(){
                 subjects.modal.trigger(options.eventsNames.hide);
+                subjects.overlay.css('display', '');  // clear inline styles after jQ animations
+                subjects.modal.css('display', '');
               });
             },
             positioning: function(subjects) {
@@ -93,8 +96,7 @@
             afterHide: function(subjects) {
               subjects.overlay.off(options.eventsNames.internal.overlayClick);
               $(document).off(options.eventsNames.internal.keyboardKeyUp);
-
-              subjects.overlay.css('display', ''); // clear inline styles after jQ animations
+              subjects.overlay.css('display', '');  // clear inline styles after jQ animations
               subjects.modal.css('display', '');
             }
           }
@@ -103,7 +105,7 @@
 
       var animate = function(process, subjects, callbackName) {
         var first  = options.animationsPriority[process][0],
-            second = options.animationsPriority[process][1];
+          second = options.animationsPriority[process][1];
 
         options[first].animations[process](subjects, function(subjs) {        // call USER's    FIRST animation (depends on priority)
           options[first].animations.internal[process](subjs);                 // call internal  FIRST animation
@@ -111,8 +113,8 @@
           options[second].animations[process](subjects, function(subjs) {     // call USER's    SECOND animation
             options[second].animations.internal[process](subjs);              // call internal  SECOND animation
 
-                                                                              // then we need to call USER's
-                                                                              // afterShow of afterHide callback
+            // then we need to call USER's
+            // afterShow of afterHide callback
             options.callbacks[callbackName](subjects, options.callbacks.internal[callbackName]);
           });
         });
@@ -132,7 +134,6 @@
         animate('hide', subjects, 'afterHide');
       };
 
-
       var $overlay = $(options.overlay.selector);
 
       return this.each(function() {
@@ -140,7 +141,7 @@
         var subjects = {modal: $modal, overlay: $overlay};
 
         $modal.bind(options.eventsNames.show, function(){ showModal(subjects); })
-              .bind(options.eventsNames.hide, function(){ hideModal(subjects); });
+          .bind(options.eventsNames.hide, function(){ hideModal(subjects); });
       });
     }
   });
