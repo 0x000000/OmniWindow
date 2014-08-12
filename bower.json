@@ -1,0 +1,32 @@
+{
+  "name": "OmniWindow",
+  "version": "1.0.0",
+  "homepage": "https://github.com/0x000000/OmniWindow",
+  "authors": [
+    "Alexander Rudenka <mur.mailbox@gmail.com>"
+  ],
+  "description": "Extremely customizable modal window plugin for jQuery with 150 lines of code",
+  "main": "jquery.omniwindow.js",
+  "moduleType": [
+    "amd",
+    "globals"
+  ],
+  "ignore": [
+    "jquery.omniwindow.css",
+    "OmniWindow.jquery.json",
+    "README.md"
+  ],
+  "dependencies": {
+    "jquery": ">=1.5"
+  },
+  "keywords": [
+    "jquery",
+    "plugin",
+    "modal",
+    "popup",
+    "overlay",
+    "dialog",
+    "window"
+  ],
+  "license": "MIT"
+}
