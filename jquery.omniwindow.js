@@ -1,5 +1,5 @@
 // jQuery OmniWindow plugin
-// @version:  0.7.2
+// @version:  1.0.0
 // @author:   Rudenka Alexander (mur.mailbox@gmail.com)
 // @license:  MIT
 
@@ -53,10 +53,10 @@
           }
         },
         callbacks: {                                                                                  // Callbacks execution chain
-          beforeShow:  function(subjects, internalCallback) { return internalCallback(subjects); },   // 1 (stop if retruns false)
+          beforeShow:  function(subjects, internalCallback) { return internalCallback(subjects); },   // 1 (stop if returns false)
           positioning: function(subjects, internalCallback) { return internalCallback(subjects); },   // 2
           afterShow:   function(subjects, internalCallback) { return internalCallback(subjects); },   // 3
-          beforeHide:  function(subjects, internalCallback) { return internalCallback(subjects); },   // 4 (stop if retruns false)
+          beforeHide:  function(subjects, internalCallback) { return internalCallback(subjects); },   // 4 (stop if returns false)
           afterHide:   function(subjects, internalCallback) { return internalCallback(subjects); },   // 5
           internal: {
             beforeShow: function(subjects) {
