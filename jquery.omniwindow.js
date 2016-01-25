@@ -1,11 +1,11 @@
 // jQuery OmniWindow plugin
-// @version:  1.0.0
+// @version:  1.0.1
 // @author:   Rudenka Alexander (mur.mailbox@gmail.com)
 // @license:  MIT
 
 ;(function (factory) {
   if (typeof define === 'function' && define.amd) {
-    define(['jquery'], factory(jQuery)); // AMD. Register as anonymous module.
+    define(['jquery'], factory); // AMD. Register as anonymous module.
   } else {
     factory(jQuery); // Browser globals.
   }
