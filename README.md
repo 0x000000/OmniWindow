@@ -16,7 +16,7 @@ Main Ideas
 * 150 lines of code are enough for modal window plugin.
 
 
-Documentaion and Demos
+Documentation and Demos
 ----------------------
 
 Here is [OmniWindow page](http://0x000000.github.com/OmniWindow/)
@@ -30,3 +30,4 @@ Contributors
 * [Damien Alexandre](https://github.com/damienalexandre) - jsHint compliance and strict mode
 * [xzyfer](https://github.com/xzyfer) - add AMD support
 * [Nicholas Bowers](https://github.com/NicholasRBowers) — fixed hiding animation bug
+* [rkriegelm](https://github.com/rkriegelm) — fixed problem with AMD factory

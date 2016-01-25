@@ -1,5 +1,5 @@
 // jQuery OmniWindow plugin
-// @version:  1.0.0
+// @version:  1.0.1
 // @author:   Rudenka Alexander (mur.mailbox@gmail.com)
 // @license:  MIT
 
